@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.supplysync.presentation.OrderPlacementController" stylesheets="@order-placement.css" styleClass="root-pane">
+    <left>
+        <VBox prefWidth="220.0" styleClass="sidebar">
+            <padding><Insets top="18.0" right="18.0" bottom="18.0" left="18.0"/></padding>
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label text="▣" styleClass="brand-icon"/>
+                <VBox spacing="1.0">
+                    <Label text="SupplySync" styleClass="brand-title"/>
+                    <Label text="MARKETING PORTAL" styleClass="brand-subtitle"/>
+                </VBox>
+            </HBox>
+            <VBox spacing="8.0" styleClass="nav-group">
+                <Button text="Dashboard" onAction="#openMarketingDashboard" styleClass="nav-btn"/>
+                <Button text="Products" onAction="#openProductCatalog" styleClass="nav-btn"/>
+                <Button text="My Orders" onAction="#openMyOrders" styleClass="nav-btn nav-btn-active"/>
+            </VBox>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="Settings" onAction="#openSettings" styleClass="secondary-btn"/>
+            <Button text="Logout" onAction="#logout" styleClass="secondary-btn"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="12.0" styleClass="main-area">
+            <padding><Insets top="10.0" right="20.0" bottom="16.0" left="20.0"/></padding>
+
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label text="Search orders..." styleClass="search-placeholder"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="🔔" styleClass="top-icon"/>
+                <Label text="❔" styleClass="top-icon"/>
+                <Label text="👤" styleClass="top-icon"/>
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT">
+                <VBox spacing="2.0">
+                    <Label text="Order Placement" styleClass="page-title"/>
+                    <Label text="Review customer details and items before confirming order." styleClass="page-subtitle"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Save as Draft" styleClass="outline-btn"/>
+                <Button text="Confirm Order" styleClass="primary-btn"/>
+            </HBox>
+
+            <HBox spacing="14.0" VBox.vgrow="ALWAYS">
+                <VBox spacing="12.0" HBox.hgrow="ALWAYS">
+                    <VBox styleClass="panel">
+                        <Label text="Customer Information" styleClass="panel-title"/>
+                        <Separator/>
+                        <HBox spacing="10.0">
+                            <VBox HBox.hgrow="ALWAYS" spacing="6.0">
+                                <Label text="FULL NAME" styleClass="small-label"/>
+                                <TextField text="Jonathan Miller"/>
+                            </VBox>
+                            <VBox HBox.hgrow="ALWAYS" spacing="6.0">
+                                <Label text="PHONE NUMBER" styleClass="small-label"/>
+                                <TextField text="+1 (555) 0123-4567"/>
+                            </VBox>
+                        </HBox>
+                        <VBox spacing="6.0">
+                            <Label text="SHIPPING ADDRESS" styleClass="small-label"/>
+                            <TextArea prefRowCount="2" text="742 Evergreen Terrace, Springfield, IL 62704, United States"/>
+                        </VBox>
+                    </VBox>
+
+                    <VBox styleClass="panel">
+                        <HBox>
+                            <Label text="Order Items" styleClass="panel-title"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button text="Edit Catalog" styleClass="link-btn"/>
+                        </HBox>
+                        <Separator/>
+                        <HBox styleClass="table-head">
+                            <Label text="PRODUCT" styleClass="col-product head-cell"/>
+                            <Label text="QTY" styleClass="col-qty head-cell"/>
+                            <Label text="PRICE" styleClass="col-price head-cell"/>
+                            <Label text="TOTAL" styleClass="col-total head-cell"/>
+                        </HBox>
+                        <HBox styleClass="table-row">
+                            <Label text="Velocity X-1 Runner" styleClass="col-product body-cell"/>
+                            <Label text="12" styleClass="col-qty body-cell"/>
+                            <Label text="\$120.00" styleClass="col-price body-cell"/>
+                            <Label text="\$1,440.00" styleClass="col-total body-cell strong"/>
+                        </HBox>
+                        <HBox styleClass="table-row">
+                            <Label text="SyncCore Smartwatch" styleClass="col-product body-cell"/>
+                            <Label text="5" styleClass="col-qty body-cell"/>
+                            <Label text="\$210.00" styleClass="col-price body-cell"/>
+                            <Label text="\$1,050.00" styleClass="col-total body-cell strong"/>
+                        </HBox>
+                    </VBox>
+
+                    <VBox styleClass="panel">
+                        <Label text="Shipping Preferences" styleClass="panel-title"/>
+                        <Separator/>
+                        <HBox spacing="10.0">
+                            <VBox HBox.hgrow="ALWAYS" spacing="6.0">
+                                <Label text="SHIPPING METHOD" styleClass="small-label"/>
+                                <VBox styleClass="option-card option-card-active">
+                                    <RadioButton selected="true" text="Standard Freight"/>
+                                    <Label text="3-5 Business Days • \$45.00" styleClass="hint"/>
+                                </VBox>
+                                <VBox styleClass="option-card">
+                                    <RadioButton text="Express Courier"/>
+                                    <Label text="Next Day Delivery • \$120.00" styleClass="hint"/>
+                                </VBox>
+                            </VBox>
+                            <VBox HBox.hgrow="ALWAYS" spacing="6.0">
+                                <Label text="DELIVERY NOTES (OPTIONAL)" styleClass="small-label"/>
+                                <TextArea prefRowCount="4" text="Gate code, specific loading dock instructions, etc."/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </VBox>
+
+                <VBox prefWidth="330.0" spacing="12.0">
+                    <VBox styleClass="summary-panel">
+                        <Label text="Order Summary" styleClass="summary-title"/>
+                        <HBox><Label text="Subtotal (17 items)"/><Region HBox.hgrow="ALWAYS"/><Label text="\$2,490.00"/></HBox>
+                        <HBox><Label text="Shipping Fee"/><Region HBox.hgrow="ALWAYS"/><Label text="\$45.00"/></HBox>
+                        <HBox><Label text="Estimated Tax"/><Region HBox.hgrow="ALWAYS"/><Label text="\$199.20"/></HBox>
+                        <Separator/>
+                        <HBox><Label text="Total Amount" styleClass="total-label"/><Region HBox.hgrow="ALWAYS"/><Label text="\$2,734.20" styleClass="total-value"/></HBox>
+                        <VBox styleClass="commission-box">
+                            <HBox><Label text="EXPECTED COMMISSION" styleClass="mini-label"/><Region HBox.hgrow="ALWAYS"/><Label text="8% RATE" styleClass="rate-pill"/></HBox>
+                            <Label text="\$218.74" styleClass="commission-value"/>
+                            <Label text="Payable 14 days after delivery confirmation." styleClass="hint"/>
+                        </VBox>
+                        <Button text="Confirm Order" styleClass="primary-btn full-btn"/>
+                        <Label text="By confirming, you agree to the SupplySync Marketer Terms of Service." wrapText="true" styleClass="hint center-text"/>
+                    </VBox>
+
+                    <VBox styleClass="help-box">
+                        <Label text="Need help?" styleClass="panel-title"/>
+                        <Label text="Questions about this order or shipping logistics?" wrapText="true" styleClass="hint"/>
+                        <Button text="Contact Support" styleClass="link-btn"/>
+                    </VBox>
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

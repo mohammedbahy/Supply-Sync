@@ -10,9 +10,12 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/supplysync/presentation/login-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 760);
+        stage.setTitle("SupplySync Login");
+        stage.setResizable(true);
+        stage.setMinWidth(980);
+        stage.setMinHeight(640);
         stage.setScene(scene);
         stage.show();
     }

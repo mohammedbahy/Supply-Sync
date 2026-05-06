@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.supplysync.presentation.DashboardController" stylesheets="@dashboard.css" styleClass="root-pane">
+    <left>
+        <VBox prefWidth="220.0" styleClass="sidebar">
+            <padding>
+                <Insets top="24.0" right="18.0" bottom="24.0" left="18.0"/>
+            </padding>
+
+            <Label text="SupplySync" styleClass="brand-title"/>
+            <Label text="Wholesale Management" styleClass="brand-subtitle"/>
+
+            <VBox spacing="8.0" styleClass="nav-group">
+                <Button text="Dashboard" onAction="#openDashboard" styleClass="nav-btn nav-btn-active"/>
+                <Button text="Products" onAction="#openProducts" styleClass="nav-btn"/>
+                <Button text="Orders" onAction="#openOrders" styleClass="nav-btn"/>
+                <Button text="Marketers" onAction="#openMarketers" styleClass="nav-btn"/>
+                <Button text="Reports" onAction="#openReports" styleClass="nav-btn"/>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="Support" onAction="#openSupport" styleClass="secondary-btn"/>
+            <Button text="Sign Out" onAction="#logout" styleClass="secondary-btn"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="16.0" styleClass="main-area">
+            <padding>
+                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+            </padding>
+
+            <HBox alignment="CENTER_LEFT" spacing="12.0">
+                <Label text="Global search..." styleClass="search-placeholder"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="🔔" styleClass="top-icon"/>
+                <Label text="⚙" styleClass="top-icon"/>
+                <Label text="👤" styleClass="top-icon"/>
+            </HBox>
+
+            <VBox spacing="2.0">
+                <Label text="Dashboard Overview" styleClass="page-title"/>
+                <Label text="Real-time logistics and inventory tracking system" styleClass="page-subtitle"/>
+            </VBox>
+
+            <HBox spacing="12.0">
+                <VBox HBox.hgrow="ALWAYS" styleClass="metric-card">
+                    <Label text="TOTAL PRODUCTS" styleClass="metric-label"/>
+                    <HBox spacing="8.0">
+                        <Label text="12,482" styleClass="metric-value"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label text="+2.4%" styleClass="metric-positive"/>
+                    </HBox>
+                </VBox>
+                <VBox HBox.hgrow="ALWAYS" styleClass="metric-card">
+                    <Label text="TOTAL ORDERS" styleClass="metric-label"/>
+                    <HBox spacing="8.0">
+                        <Label text="1,840" styleClass="metric-value"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label text="+12.1%" styleClass="metric-positive"/>
+                    </HBox>
+                </VBox>
+                <VBox HBox.hgrow="ALWAYS" styleClass="metric-card">
+                    <Label text="PENDING ORDERS" styleClass="metric-label"/>
+                    <HBox spacing="8.0">
+                        <Label text="64" styleClass="metric-value"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label text="-5.0%" styleClass="metric-negative"/>
+                    </HBox>
+                </VBox>
+                <VBox HBox.hgrow="ALWAYS" styleClass="metric-card">
+                    <Label text="REVENUE" styleClass="metric-label"/>
+                    <HBox spacing="8.0">
+                        <Label text="\$2.4M" styleClass="metric-value"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label text="+8.2%" styleClass="metric-positive"/>
+                    </HBox>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="12.0" VBox.vgrow="ALWAYS">
+                <VBox HBox.hgrow="ALWAYS" styleClass="panel">
+                    <HBox alignment="CENTER_LEFT">
+                        <Label text="Statistics Overview" styleClass="panel-title"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button text="Monthly" styleClass="tab-btn tab-btn-active"/>
+                        <Button text="Quarterly" styleClass="tab-btn"/>
+                    </HBox>
+                    <Separator/>
+                    <HBox spacing="10.0" alignment="BOTTOM_CENTER" VBox.vgrow="ALWAYS" styleClass="chart-box">
+                        <Region styleClass="bar bar-1"/>
+                        <Region styleClass="bar bar-2"/>
+                        <Region styleClass="bar bar-3"/>
+                        <Region styleClass="bar bar-4"/>
+                        <Region styleClass="bar bar-5"/>
+                        <Region styleClass="bar bar-6"/>
+                    </HBox>
+                </VBox>
+
+                <VBox prefWidth="300.0" styleClass="panel">
+                    <Label text="Order Velocity" styleClass="panel-title"/>
+                    <Separator/>
+                    <VBox spacing="14.0" styleClass="velocity-list">
+                        <VBox spacing="6.0">
+                            <HBox><Label text="In Transit"/><Region HBox.hgrow="ALWAYS"/><Label text="84%"/></HBox>
+                            <ProgressBar progress="0.84" styleClass="progress-blue"/>
+                        </VBox>
+                        <VBox spacing="6.0">
+                            <HBox><Label text="Stock Availability"/><Region HBox.hgrow="ALWAYS"/><Label text="62%"/></HBox>
+                            <ProgressBar progress="0.62" styleClass="progress-blue"/>
+                        </VBox>
+                        <VBox spacing="6.0">
+                            <HBox><Label text="Returns Rate"/><Region HBox.hgrow="ALWAYS"/><Label text="1.2%"/></HBox>
+                            <ProgressBar progress="0.12" styleClass="progress-red"/>
+                        </VBox>
+                    </VBox>
+                    <StackPane styleClass="info-box">
+                        <Label wrapText="true" text="System performance is optimal. 14 new orders require immediate verification before 5:00 PM EST."/>
+                    </StackPane>
+                </VBox>
+            </HBox>
+
+            <VBox styleClass="panel">
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="Recent Inventory Updates" styleClass="panel-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="View All" styleClass="link-btn"/>
+                </HBox>
+                <Separator/>
+                <HBox styleClass="table-header">
+                    <Label text="PRODUCT NAME" styleClass="inv-table-head-cell"/>
+                    <Label text="SKU" styleClass="inv-table-head-cell"/>
+                    <Label text="CATEGORY" styleClass="inv-table-head-cell"/>
+                    <Label text="STATUS" styleClass="inv-table-head-cell"/>
+                    <Label text="PRICE" styleClass="inv-table-head-cell price-col"/>
+                </HBox>
+                <HBox styleClass="table-row">
+                    <Label text="Industrial Power Drill v4" styleClass="inv-table-cell"/>
+                    <Label text="SKU-2930-PD" styleClass="inv-table-cell"/>
+                    <Label text="Hardware" styleClass="inv-table-cell"/>
+                    <Label text="In Stock" styleClass="status-green"/>
+                    <Label text="\$129.99" styleClass="inv-table-cell price-col"/>
+                </HBox>
+                <HBox styleClass="table-row">
+                    <Label text="Premium Safety Goggles" styleClass="inv-table-cell"/>
+                    <Label text="SKU-1102-SG" styleClass="inv-table-cell"/>
+                    <Label text="Protection" styleClass="inv-table-cell"/>
+                    <Label text="Low Stock" styleClass="status-yellow"/>
+                    <Label text="\$14.50" styleClass="inv-table-cell price-col"/>
+                </HBox>
+                <HBox styleClass="table-row">
+                    <Label text="Heavy Duty Work Table" styleClass="inv-table-cell"/>
+                    <Label text="SKU-4412-WT" styleClass="inv-table-cell"/>
+                    <Label text="Furniture" styleClass="inv-table-cell"/>
+                    <Label text="In Stock" styleClass="status-green"/>
+                    <Label text="\$450.00" styleClass="inv-table-cell price-col"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

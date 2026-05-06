@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.supplysync.presentation.ProductCatalogController" stylesheets="@product-catalog.css" styleClass="root-pane">
+    <left>
+        <VBox prefWidth="220.0" styleClass="sidebar">
+            <padding><Insets top="18.0" right="18.0" bottom="18.0" left="18.0"/></padding>
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label text="▣" styleClass="brand-icon"/>
+                <VBox spacing="1.0">
+                    <Label text="SupplySync" styleClass="brand-title"/>
+                    <Label text="MARKETING PORTAL" styleClass="brand-subtitle"/>
+                </VBox>
+            </HBox>
+            <VBox spacing="8.0" styleClass="nav-group">
+                <Button text="Dashboard" onAction="#openMarketingDashboard" styleClass="nav-btn"/>
+                <Button text="Products" onAction="#openProductCatalog" styleClass="nav-btn nav-btn-active"/>
+                <Button text="My Orders" onAction="#openMyOrders" styleClass="nav-btn"/>
+            </VBox>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="Settings" onAction="#openSettings" styleClass="secondary-btn"/>
+            <Button text="Logout" onAction="#logout" styleClass="secondary-btn"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="12.0" styleClass="main-area">
+            <padding><Insets top="10.0" right="20.0" bottom="16.0" left="20.0"/></padding>
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label text="Search products, SKU, or category..." styleClass="search-placeholder"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="🔔" styleClass="top-icon"/>
+                <Label text="❔" styleClass="top-icon"/>
+                <VBox>
+                    <Label text="Alex Rivera" styleClass="user-name"/>
+                    <Label text="Marketing Lead" styleClass="user-role"/>
+                </VBox>
+                <Label text="👤" styleClass="top-icon"/>
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT">
+                <VBox spacing="2.0">
+                    <Label text="Product Catalog" styleClass="page-title"/>
+                    <Label text="Browse and manage wholesale inventory for promotional campaigns." styleClass="page-subtitle"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="REFINE GRID" styleClass="outline-btn"/>
+                <Button text="+  ADD NEW SKU" styleClass="primary-btn"/>
+            </HBox>
+
+            <HBox spacing="8.0">
+                <Button text="All Categories" styleClass="chip chip-active"/>
+                <Button text="Electronics" styleClass="chip"/>
+                <Button text="Industrial Parts" styleClass="chip"/>
+                <Button text="Furniture" styleClass="chip"/>
+                <Button text="Packaging" styleClass="chip"/>
+                <Button text="Safety Gear" styleClass="chip"/>
+            </HBox>
+
+            <FlowPane hgap="10.0" vgap="10.0" prefWrapLength="950.0" VBox.vgrow="ALWAYS">
+                <VBox styleClass="product-card">
+                    <Label text="IN STOCK" styleClass="stock-green"/>
+                    <Region styleClass="thumb"/>
+                    <Label text="ELECTRONICS   SKU: SYNC-EL-094" styleClass="meta"/>
+                    <Label text="OpticStream Tablet Pro 12" styleClass="product-title"/>
+                    <HBox><Label text="\$549.00" styleClass="price"/><Region HBox.hgrow="ALWAYS"/><Label text="1,240 Units" styleClass="units"/></HBox>
+                    <HBox spacing="6.0"><Button text="VIEW DETAILS" styleClass="mini-btn"/><Button text="ADD TO ORDER" styleClass="mini-btn primary-mini"/></HBox>
+                </VBox>
+                <VBox styleClass="product-card">
+                    <Label text="LOW STOCK" styleClass="stock-yellow"/>
+                    <Region styleClass="thumb"/>
+                    <Label text="INDUSTRIAL   SKU: SYNC-IN-221" styleClass="meta"/>
+                    <Label text="TitanDrive Servo Motor X1" styleClass="product-title"/>
+                    <HBox><Label text="\$1,280.50" styleClass="price"/><Region HBox.hgrow="ALWAYS"/><Label text="12 Units" styleClass="units low"/></HBox>
+                    <HBox spacing="6.0"><Button text="VIEW DETAILS" styleClass="mini-btn"/><Button text="ADD TO ORDER" styleClass="mini-btn primary-mini"/></HBox>
+                </VBox>
+                <VBox styleClass="product-card">
+                    <Label text="IN STOCK" styleClass="stock-green"/>
+                    <Region styleClass="thumb"/>
+                    <Label text="FURNITURE   SKU: SYNC-FU-811" styleClass="meta"/>
+                    <Label text="ErgoNexus Office Chair" styleClass="product-title"/>
+                    <HBox><Label text="\$325.00" styleClass="price"/><Region HBox.hgrow="ALWAYS"/><Label text="450 Units" styleClass="units"/></HBox>
+                    <HBox spacing="6.0"><Button text="VIEW DETAILS" styleClass="mini-btn"/><Button text="ADD TO ORDER" styleClass="mini-btn primary-mini"/></HBox>
+                </VBox>
+                <VBox styleClass="product-card">
+                    <Label text="IN STOCK" styleClass="stock-green"/>
+                    <Region styleClass="thumb"/>
+                    <Label text="PACKAGING   SKU: SYNC-PK-450" styleClass="meta"/>
+                    <Label text="EcoStack Reinforced Box" styleClass="product-title"/>
+                    <HBox><Label text="\$12.40" styleClass="price"/><Region HBox.hgrow="ALWAYS"/><Label text="5,000+ Units" styleClass="units"/></HBox>
+                    <HBox spacing="6.0"><Button text="VIEW DETAILS" styleClass="mini-btn"/><Button text="ADD TO ORDER" styleClass="mini-btn primary-mini"/></HBox>
+                </VBox>
+                <VBox styleClass="product-card">
+                    <Label text="OUT OF STOCK" styleClass="stock-gray"/>
+                    <Region styleClass="thumb"/>
+                    <Label text="INDUSTRIAL   SKU: SYNC-IN-002" styleClass="meta"/>
+                    <Label text="SmartNode IoT Sensor V2" styleClass="product-title"/>
+                    <HBox><Label text="\$85.00" styleClass="price"/><Region HBox.hgrow="ALWAYS"/><Label text="0 Units" styleClass="units low"/></HBox>
+                    <HBox spacing="6.0"><Button text="VIEW DETAILS" styleClass="mini-btn"/><Button text="RESTOCKING" styleClass="mini-btn disabled-mini"/></HBox>
+                </VBox>
+                <VBox styleClass="product-card">
+                    <Label text="IN STOCK" styleClass="stock-green"/>
+                    <Region styleClass="thumb"/>
+                    <Label text="ELECTRONICS   SKU: SYNC-EL-552" styleClass="meta"/>
+                    <Label text="SyncCharge Power Hub" styleClass="product-title"/>
+                    <HBox><Label text="\$129.99" styleClass="price"/><Region HBox.hgrow="ALWAYS"/><Label text="880 Units" styleClass="units"/></HBox>
+                    <HBox spacing="6.0"><Button text="VIEW DETAILS" styleClass="mini-btn"/><Button text="ADD TO ORDER" styleClass="mini-btn primary-mini"/></HBox>
+                </VBox>
+                <VBox styleClass="product-card">
+                    <Label text="IN STOCK" styleClass="stock-green"/>
+                    <Region styleClass="thumb"/>
+                    <Label text="INDUSTRIAL   SKU: SYNC-IN-339" styleClass="meta"/>
+                    <Label text="FlowMaster Valve Control" styleClass="product-title"/>
+                    <HBox><Label text="\$2,450.00" styleClass="price"/><Region HBox.hgrow="ALWAYS"/><Label text="65 Units" styleClass="units"/></HBox>
+                    <HBox spacing="6.0"><Button text="VIEW DETAILS" styleClass="mini-btn"/><Button text="ADD TO ORDER" styleClass="mini-btn primary-mini"/></HBox>
+                </VBox>
+                <VBox styleClass="product-card">
+                    <Label text="LOW STOCK" styleClass="stock-yellow"/>
+                    <Region styleClass="thumb"/>
+                    <Label text="SAFETY   SKU: SYNC-SF-120" styleClass="meta"/>
+                    <Label text="SafeGuard Elite Headset" styleClass="product-title"/>
+                    <HBox><Label text="\$74.50" styleClass="price"/><Region HBox.hgrow="ALWAYS"/><Label text="42 Units" styleClass="units low"/></HBox>
+                    <HBox spacing="6.0"><Button text="VIEW DETAILS" styleClass="mini-btn"/><Button text="ADD TO ORDER" styleClass="mini-btn primary-mini"/></HBox>
+                </VBox>
+            </FlowPane>
+
+            <Separator/>
+            <HBox>
+                <Label text="Showing 1 - 8 of 124 products" styleClass="hint"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="1" styleClass="page-btn page-btn-active"/>
+                <Button text="2" styleClass="page-btn"/>
+                <Button text="3" styleClass="page-btn"/>
+                <Button text="16" styleClass="page-btn"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
