@@ -6,7 +6,7 @@ The project focuses on providing an intuitive and user-friendly interface that a
 
 ## ✨ Features
 
-- 📦 Inventory Management – Track products, quantities, and stock updates بسهولة  
+- 📦 Inventory Management – Track products, quantities, and stock updates   
 - 🤝 Supplier Management – Manage supplier data and relationships  
 - 🔄 Real-Time Sync – Keep data updated and consistent across the system  
 - 📊 Dashboard & Analytics – Visual insights to support better decisions  
